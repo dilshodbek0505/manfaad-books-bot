@@ -1,37 +1,38 @@
-from aiogram import Router, types, F
-from aiogram.utils.i18n import lazy_gettext as __
-from aiogram.utils.i18n import gettext as _
+from aiogram import types, Router, F
 from aiogram.fsm.context import FSMContext
+from aiogram.utils.i18n import gettext as _
+from aiogram.utils.i18n import lazy_gettext as __
 
-from apps.bot.keyboards.reply import reply_settings_menu, reply_main_menu
+from apps.bot.keyboards.reply import reply_settings_menu
 from apps.bot.keyboards.inline import inline_languages
-from apps.bot.utils.states import UpdateLanguageStatesGroup
+from apps.bot.utils.states import SettingsMenuStatesGruop
+from apps.bot.utils.callback_data import SelectLanguageCallbackData
 
-from django.contrib.auth import get_user_model
+from django.core.cache import cache
 
 router = Router()
-User = get_user_model()
 
 
+@router.message(F.text == __("Sozlamalar⚙️"))
+async def settings_menu(message: types.Message, state: FSMContext):
+    await message.answer(_("Sozlamalar menusi"), reply_markup=reply_settings_menu())
+    await state.set_state(SettingsMenuStatesGruop.menu)
 
-@router.message(F.text == __("Sozlamalar"))
-async def settings_menu(messages: types.Message, state: FSMContext):
-    await messages.answer(_("Sozlamalar menusi"), reply_markup=reply_settings_menu())
-    await state.set_state(UpdateLanguageStatesGroup.language)
+@router.message(F.text == __("Tilni o'zgartirish"), SettingsMenuStatesGruop.menu)
+async def settings_change_language(message: types.Message, state: FSMContext):
+    await message.answer(_("Tilni tanlang:"), reply_markup=inline_languages())
+    await state.set_state(SettingsMenuStatesGruop.language)
 
+@router.callback_query(SettingsMenuStatesGruop.language, SelectLanguageCallbackData.filter())
+async def settings_select_language(callback_query: types.CallbackQuery, callback_data: SelectLanguageCallbackData, state: FSMContext):
+    from apps.bot.management.commands.runbot import i18n
 
-@router.message(F.text == __("Tilni o'zgartirish"), UpdateLanguageStatesGroup.language)
-async def settings_menu_update_language(message: types.Message, state: FSMContext):
-    await message.answer(_("Tilni tanlang"), reply_markup=inline_languages())
+    cache_key = f"user_language_{callback_query.from_user.id}"
+    await cache.aset(cache_key, callback_data.language.value)
     
+    i18n.ctx_locale.set(callback_data.language.value)
 
-@router.callback_query(UpdateLanguageStatesGroup.language)
-async def settings_manu_callback_language(callback_query: types.CallbackQuery, state: FSMContext):
-    user, _ = await User.objects.aget_or_create(id = callback_query.from_user.id)
-    user.language = callback_query.data.split(":")[1]
-    await user.asave()
-    
-    await state.clear()
+    await callback_query.message.answer(_("Sozlamalar menusi"), reply_markup=reply_settings_menu())
+    await state.set_state(SettingsMenuStatesGruop.menu)
+
     await callback_query.answer(cache_time=0)
-
-

@@ -1,5 +1,7 @@
 from aiogram.fsm.state import State, StatesGroup
 
 
-class UpdateLanguageStatesGroup(StatesGroup):
+class SettingsMenuStatesGruop(StatesGroup):
+    menu = State()
     language = State()
+

@@ -21,12 +21,12 @@ class CustomI18nMiddleware(I18nMiddleware):
         telegram_id = user.id
         user_obj = await User.objects.filter(id=telegram_id).afirst()
         
-        user_language = cache.get('user_language')
+        user_language = await cache.aget(f'user_language_{telegram_id}')
         if user_obj:
-            cache.set('user_language', user_obj.language)
+            cache.set(f'user_language_{telegram_id}', user_obj.language)
             user_language = user_obj.language
         elif not user_language:
-            cache.set('user_language', SelectLanguage.UZ.value)
+            cache.set(f'user_language_{telegram_id}', SelectLanguage.UZ.value)
         
         return user_language if user_language else SelectLanguage.UZ.value
     
