@@ -1,0 +1,60 @@
+# Uzbek translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-12-22 01:10+0500\n"
+"PO-Revision-Date: 2024-12-21 23:47+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uz\n"
+"Language-Team: uz <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: apps/bot/models.py:8
+msgid "Telegram ID of the bot admin"
+msgstr "Bot admin telegram idsi"
+
+#: apps/bot/handlers/commands.py:14
+msgid "Botga xush kelibsiz!"
+msgstr ""
+
+#: apps/bot/handlers/settings.py:17 apps/bot/keyboards/reply.py:8
+msgid "Sozlamalar"
+msgstr ""
+
+#: apps/bot/handlers/settings.py:19
+msgid "Sozlamalar menusi"
+msgstr ""
+
+#: apps/bot/handlers/settings.py:23 apps/bot/keyboards/reply.py:15
+msgid "Tilni o'zgartirish"
+msgstr ""
+
+#: apps/bot/handlers/settings.py:25
+msgid "Tilni tanlang"
+msgstr ""
+
+#: apps/bot/handlers/settings.py:34
+msgid "Til o'zgartirildi✅"
+msgstr ""
+
+#: apps/bot/keyboards/inline.py:10
+msgid "O'zbek🇺🇿"
+msgstr ""
+
+#: apps/bot/keyboards/inline.py:11
+msgid "Rus🇷🇺"
+msgstr ""
+
+#: apps/bot/keyboards/inline.py:12
+msgid "Ingliz🇺🇸"
+msgstr ""
+
