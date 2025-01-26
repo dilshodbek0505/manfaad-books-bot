@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 from django.conf import settings
 
 from redis.asyncio.client import Redis
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher,types
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage
@@ -16,6 +16,8 @@ from apps.bot.middlewares import setup_middlewares
 from apps.bot.config.config import BOT_TOKEN, REDIS_URL
 
 
+
+i18n = I18n(path="locales", default_locale="en", domain="messages")
 class Command(BaseCommand):
     help = "Run bot in polling"
 
@@ -26,11 +28,11 @@ class Command(BaseCommand):
         
     async def start_bot(self):
         redis = await Redis.from_url(REDIS_URL)
-
+        
         bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
         dp = Dispatcher(storage=RedisStorage(redis=redis))
 
-        i18n = I18n(path="locales", default_locale="en", domain="messages")
+        
         i18n_middleware = CustomI18nMiddleware(i18n=i18n)
         
         i18n_middleware.setup(dp)
@@ -40,3 +42,4 @@ class Command(BaseCommand):
 
         await bot.delete_webhook(drop_pending_updates=True)
         await dp.start_polling(bot)
+    

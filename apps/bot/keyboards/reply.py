@@ -6,6 +6,7 @@ def reply_main_menu():
     reply_keyboard = ReplyKeyboardBuilder()
 
     reply_keyboard.button(text=_("Sozlamalar⚙️"))
+    reply_keyboard.button(text=_("Kitoblar📚"))
 
     return reply_keyboard.as_markup(resize_keyboard = True)
 
