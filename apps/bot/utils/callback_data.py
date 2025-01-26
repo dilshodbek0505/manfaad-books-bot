@@ -12,3 +12,13 @@ class SelectLanguageCallbackData(CallbackData, prefix="select_language"):
 
 def cb_select_language_callback_data(lang):
     return SelectLanguageCallbackData(language=lang.value).pack()
+
+class SelectSearch(str, Enum):
+    NAME = 'name'
+    author = 'author'
+
+class SelectSearchCallbackData(CallbackData, prefix="select_search"):
+    searching: SelectSearch
+
+def cb_SelectSearch_callback_data(search):
+    return SelectSearchCallbackData(searching=search.value).pack()

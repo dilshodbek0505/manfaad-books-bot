@@ -14,3 +14,13 @@ def inline_languages():
     inline_keyboard.adjust(1)
     
     return inline_keyboard.as_markup()
+
+def inline_searches():
+    inline_keyboard = InlineKeyboardBuilder()
+
+    inline_keyboard.button(text=_("Nomi orqali🔍"),callback_data=cb_SelectSearch_callback_data(search=SelectSearch.NAME))
+    inline_keyboard.button(text=_("Aftori orqali🔎"),callback_data=cb_SelectSearch_callback_data(search=SelectSearch.author))
+
+    inline_keyboard.adjust(1)
+
+    return inline_keyboard.as_markup()

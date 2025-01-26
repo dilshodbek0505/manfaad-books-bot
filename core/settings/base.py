@@ -48,6 +48,7 @@ CUSTOM_APPS = [
     'apps.common',
     'apps.users',
     'apps.bot',
+    'apps.books',
 ]
 
 THIRD_PARTY_APPS = [
