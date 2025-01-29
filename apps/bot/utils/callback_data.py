@@ -16,6 +16,7 @@ def cb_select_language_callback_data(lang):
 class SelectSearch(str, Enum):
     NAME = 'name'
     author = 'author'
+    all_books = 'all'
 
 class SelectSearchCallbackData(CallbackData, prefix="select_search"):
     searching: SelectSearch

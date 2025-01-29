@@ -19,14 +19,14 @@ class CustomI18nMiddleware(I18nMiddleware):
         user: types.User = data.get(EVENT_FROM_USER)
 
         telegram_id = user.id
-        user_obj = await User.objects.filter(id=telegram_id).afirst()
-        
+        user_obj = await User.objects.all().filter(id=telegram_id).afirst()
         user_language = await cache.aget(f'user_language_{telegram_id}')
         if user_obj:
             cache.set(f'user_language_{telegram_id}', user_obj.language)
             user_language = user_obj.language
         elif not user_language:
             cache.set(f'user_language_{telegram_id}', SelectLanguage.UZ.value)
+            print("user obj not found")
         
         return user_language if user_language else SelectLanguage.UZ.value
     

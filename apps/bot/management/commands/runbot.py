@@ -16,8 +16,9 @@ from apps.bot.middlewares import setup_middlewares
 from apps.bot.config.config import BOT_TOKEN, REDIS_URL
 
 
-
 i18n = I18n(path="locales", default_locale="en", domain="messages")
+
+
 class Command(BaseCommand):
     help = "Run bot in polling"
 
@@ -31,7 +32,6 @@ class Command(BaseCommand):
         
         bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
         dp = Dispatcher(storage=RedisStorage(redis=redis))
-
         
         i18n_middleware = CustomI18nMiddleware(i18n=i18n)
         

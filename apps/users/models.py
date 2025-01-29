@@ -29,6 +29,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "username"    
     REQUIRED_FIELDS = ["first_name"]
 
+
+    def __str__(self):
+        return f"{self.id} | {self.first_name}"
+
     class Meta:
         verbose_name = _("User")
         verbose_name_plural = _("Users")
+    
+
