@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-22 01:10+0500\n"
+"POT-Creation-Date: 2025-02-01 18:24+0500\n"
 "PO-Revision-Date: 2024-12-21 23:47+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
@@ -22,28 +22,125 @@ msgstr ""
 msgid "Telegram ID of the bot admin"
 msgstr "Bot admin telegram idsi"
 
-#: apps/bot/handlers/commands.py:14
+#: apps/bot/handlers/commands.py:43 apps/bot/handlers/commands.py:99
 msgid "Botga xush kelibsiz!"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:17 apps/bot/keyboards/reply.py:8
-msgid "Sozlamalar"
+#: apps/bot/handlers/commands.py:46
+msgid "Keling siz bilan yaqindan tanishib olamiz 😊"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:19
+#: apps/bot/handlers/commands.py:47
+msgid "Ismingiz: "
+msgstr ""
+
+#: apps/bot/handlers/commands.py:57
+msgid "Telfon raqamingizni yuboring:"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:66 apps/bot/handlers/commands.py:75
+msgid "Tilni tanlang: "
+msgstr ""
+
+#: apps/bot/handlers/commands.py:97
+msgid "Xatolik yuz berdi 😢"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:120
+msgid "Kitob nomini yozib yuboring:"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:143
+msgid "Kitob muallifini yozib yuboring:"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:182
+msgid "❌ Kitoblar topilmadi."
+msgstr ""
+
+#: apps/bot/handlers/commands.py:229
+msgid "🔍 Barcha kitoblar eng mashhurlik bo‘yicha saralangan:"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:321 apps/bot/handlers/commands.py:329
+#: apps/bot/handlers/commands.py:336
+msgid "🔍 Siz qidirgan kitoblardan birini tanlang:"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:342
+msgid "❌ Bunday kitob topilmadi. Iltimos, boshqa nom kiriting."
+msgstr ""
+
+#: apps/bot/handlers/commands.py:348
+msgid "⚠️ Xatolik yuz berdi. Keyinroq urinib ko'ring."
+msgstr ""
+
+#: apps/bot/handlers/commands.py:429 apps/bot/handlers/commands.py:435
+msgid "🔍 {query} so'zidan boshlangan mualliflar topildi:"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:443
+msgid "❌ {query} bilan boshlangan muallif topilmadi. Qayta urinib ko'ring"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:526 apps/bot/handlers/commands.py:529
+msgid "{author} yozgan barcha kitoblar:"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:531
+msgid "❌ Bu muallif hali kitob yozmagan."
+msgstr ""
+
+#: apps/bot/handlers/commands.py:533 apps/bot/handlers/commands.py:602
+#: apps/bot/handlers/commands.py:627
+msgid "⚠️ Xatolik yuz berdi"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:578
+msgid "Audio Faylni Yuklash📥"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:580
+msgid "Orqaga"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:584
+msgid "Orqagaq"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:588
+msgid ""
+"📖 Kitob: {books_name}\n"
+"✍️ Muallif: {author_name}\n"
+"  {desc}"
+msgstr ""
+
+#: apps/bot/handlers/commands.py:599 apps/bot/handlers/commands.py:625
+msgid "❌ Bu kitob topilmadi."
+msgstr ""
+
+#: apps/bot/handlers/settings.py:21 apps/bot/keyboards/reply.py:8
+msgid "Sozlamalar⚙️"
+msgstr ""
+
+#: apps/bot/handlers/settings.py:37 apps/bot/handlers/settings.py:88
 msgid "Sozlamalar menusi"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:23 apps/bot/keyboards/reply.py:15
+#: apps/bot/handlers/settings.py:40 apps/bot/keyboards/reply.py:9
+msgid "Kitoblar📚"
+msgstr ""
+
+#: apps/bot/handlers/settings.py:59
+msgid "Kitoblarni nomi yoki muallifini yozib qidirishingiz mumkin"
+msgstr ""
+
+#: apps/bot/handlers/settings.py:65 apps/bot/keyboards/reply.py:16
 msgid "Tilni o'zgartirish"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:25
-msgid "Tilni tanlang"
-msgstr ""
-
-#: apps/bot/handlers/settings.py:34
-msgid "Til o'zgartirildi✅"
+#: apps/bot/handlers/settings.py:67
+msgid "Tilni tanlang:"
 msgstr ""
 
 #: apps/bot/keyboards/inline.py:10
@@ -57,4 +154,39 @@ msgstr ""
 #: apps/bot/keyboards/inline.py:12
 msgid "Ingliz🇺🇸"
 msgstr ""
+
+#: apps/bot/keyboards/inline.py:21
+msgid "Nomi orqali🔍"
+msgstr ""
+
+#: apps/bot/keyboards/inline.py:22
+msgid "Aftori orqali🔎"
+msgstr ""
+
+#: apps/bot/keyboards/inline.py:23
+msgid "Barcha kitoblar"
+msgstr ""
+
+#: apps/bot/keyboards/reply.py:23
+msgid "Telfon raqamni yuborish"
+msgstr ""
+
+#~ msgid "Sozlamalar"
+#~ msgstr ""
+
+#~ msgid "Tilni tanlang"
+#~ msgstr ""
+
+#~ msgid "Til o'zgartirildi✅"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "❌ {query} bilan boshlangan muallif "
+#~ "topilmadi. Iltimos, boshqa nom kiriting."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "📖 Kitob: {books_name}\n"
+#~ "✍️ Muallif: {author_name}"
+#~ msgstr ""
 
