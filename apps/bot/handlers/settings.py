@@ -20,6 +20,20 @@ User = get_user_model()
 
 @router.message(F.text == __("Sozlamalar⚙️"))
 async def settings_menu(message: types.Message, state: FSMContext):
+    try:
+        data = await state.get_data()
+        if "search_message_id" in data:
+            await bot.delete_message(
+                chat_id=message.chat.id,
+                message_id=data["search_message_id"]
+            )
+        if "search_message_name" in data:
+            await bot.delete_message(
+                chat_id=message.chat.id,
+                message_id=data["search_message_name"]
+            )
+    except TelegramBadRequest:
+        pass
     await message.answer(_("Sozlamalar menusi"), reply_markup=reply_settings_menu())
     await state.set_state(SettingsMenuStatesGruop.menu)
 

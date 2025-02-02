@@ -207,14 +207,14 @@ async def searching(callback_query: types.CallbackQuery, state: FSMContext,callb
         if page > 1:
             navigation_buttons.append(
                 InlineKeyboardButton(
-                    text="⬅ Oldingi",
+                    text=_("⬅ Oldingi"),
                     callback_data=f"all_books_{page - 1}"
                 )
             )
         if end_index < total_books:
             navigation_buttons.append(
                 InlineKeyboardButton(
-                    text="Keyingi ➡",
+                    text=_("Keyingi ➡"),
                     callback_data=f"all_books_{page + 1}"
                 )
             )
@@ -297,7 +297,7 @@ async def searching_name(message_or_query: types.Message | types.CallbackQuery, 
                 if page > 1:
                     navigation_buttons.append(
                         InlineKeyboardButton(
-                            text="⬅ Oldingi",
+                            text=_("⬅ Oldingi"),
                             callback_data=f"research_name__{query}_{page - 1}"
                         )
                     )
@@ -305,7 +305,7 @@ async def searching_name(message_or_query: types.Message | types.CallbackQuery, 
                 if end_index < total_books:
                     navigation_buttons.append(
                         InlineKeyboardButton(
-                            text="Keyingi ➡",
+                            text=_("Keyingi ➡"),
                             callback_data=f"research_name__{query}_{page + 1}"
                         )
                     )
@@ -339,7 +339,7 @@ async def searching_name(message_or_query: types.Message | types.CallbackQuery, 
                 await state.update_data(search_message_id=reply_massage.message_id)
         else:
             if isinstance(message_or_query, types.Message):
-                reply_massage=await message_or_query.reply(_("❌ Bunday kitob topilmadi. Iltimos, boshqa nom kiriting."))
+                reply_massage=await message_or_query.reply(_("❌ Bunday kitob topilmadi. Iltimos, boshqa nom kiriting.") ,reply_markup=reply_main_menu())
                 await state.update_data(search_message_id=reply_massage.message_id)
                 await state.update_data(search_message_name=message_or_query.message_id)
 
@@ -405,7 +405,7 @@ async def search_authors_by_name_prefix( message_or_query: types.Message | types
             if page > 1:
                 navigation_buttons.append(
                     InlineKeyboardButton(
-                        text="⬅ Oldingi",
+                        text=_("⬅ Oldingi"),
                         callback_data=f"research_author__{query}_{page - 1}"
                     )
                 )
@@ -413,7 +413,7 @@ async def search_authors_by_name_prefix( message_or_query: types.Message | types
             if end_index < total_books:
                 navigation_buttons.append(
                     InlineKeyboardButton(
-                        text="Keyingi ➡",
+                        text=_("Keyingi ➡"),
                         callback_data=f"research_author__{query}_{page + 1}"
                     )
                 )
@@ -440,7 +440,7 @@ async def search_authors_by_name_prefix( message_or_query: types.Message | types
     else:
         if isinstance(message_or_query, types.Message):
             await message_or_query.reply(
-                _("❌ {query} bilan boshlangan muallif topilmadi. Iltimos, boshqa nom kiriting.").format(query = query)
+                _("❌ {query} bilan boshlangan muallif topilmadi. Qayta urinib ko'ring").format(query = query), reply_markup=reply_main_menu()
             )
 
     await state.clear()
@@ -455,6 +455,7 @@ async def send_author_by_callback(callback_query: types.CallbackQuery,state: FSM
     # await bot.delete_message(chat_id=callback_query.message.chat.id, message_id=callback_query.message.message_id)
     data_parts = callback_query.data.split('_')
     author = data_parts[1]
+   
     query = data_parts[2]
     page = int(data_parts[3]) if len(data_parts) > 3 else 1
 
@@ -493,7 +494,7 @@ async def send_author_by_callback(callback_query: types.CallbackQuery,state: FSM
 
                 navigation_buttons.append(
                         InlineKeyboardButton(
-                        text="Orqaga",
+                        text=_("Orqaga"),
                         callback_data=f"research_author_L_{query}"
                     )
                 )
@@ -503,7 +504,7 @@ async def send_author_by_callback(callback_query: types.CallbackQuery,state: FSM
 
                     navigation_buttons.append(
                         InlineKeyboardButton(
-                            text="⬅ Oldingi",
+                            text=_("⬅ Oldingi"),
                             callback_data=f"author_{author}_{query}_{page - 1}"
                         )
                     )
@@ -511,7 +512,7 @@ async def send_author_by_callback(callback_query: types.CallbackQuery,state: FSM
                 if end_index < total_books:
                     navigation_buttons.append(
                         InlineKeyboardButton(
-                            text="Keyingi ➡",
+                            text=_("Keyingi ➡"),
                             callback_data=f"author_{author}_{query}_{page + 1}"
                         )
                     )
@@ -533,7 +534,7 @@ async def send_author_by_callback(callback_query: types.CallbackQuery,state: FSM
         await callback_query.message.answer(_("⚠️ Xatolik yuz berdi"))
 
     await callback_query.answer()
-    await state.update_data(search_message_id=reply_message.message_id)
+    # await state.update_data(search_message_id=reply_message.message_id)
 
 
 
@@ -551,25 +552,14 @@ async def send_book_by_callback(callback_query: types.CallbackQuery, state: FSMC
     try:
         # Kitobni olish
         book = await sync_to_async(list)(Books.objects.all().filter(pk=book_id))
-        related_entry= await sync_to_async(list)(Books_population.objects.filter(telegram_id=callback_query.from_user.id))
-        if related_entry:
-            for related in related_entry:
-
-                if related.telegram_id == callback_query.from_user.id and related.book_id == book_id:
-                    pass
-                else:
-
-                # Agar yozuv mavjud bo'lmasa, yangi yozuv yaratish
-                    related_entry = await sync_to_async(Books_population.objects.create)(
-                        telegram_id=callback_query.from_user.id,
-                        book_id=book_id,  # `book_id` orqali bog'lash
-                    )
-        else:
-        # Agar yozuv mavjud bo'lmasa, yangi yozuv yaratish
-            related_entry = await sync_to_async(Books_population.objects.create)(
+        related_entry= await sync_to_async(list)(Books_population.objects.select_related("book").filter(telegram_id=callback_query.from_user.id, book_id=book_id))
+        print(related_entry)
+        if not related_entry:
+             related_entry = await sync_to_async(Books_population.objects.create)(
                 telegram_id=callback_query.from_user.id,
                 book_id=book_id,  # `book_id` orqali bog'lash
             )
+           
         
         for books in book:
             
@@ -581,11 +571,19 @@ async def send_book_by_callback(callback_query: types.CallbackQuery, state: FSMC
             elif query_name.isdigit() :
                 pass
             elif not query_name.isdigit():
-                keyboard_builder.button(text=_("Orqagaq"), callback_data=f"research_name_{query_name}")
+                keyboard_builder.button(text=_("Orqaga"), callback_data=f"research_name_{query_name}")
             reply_markup = keyboard_builder.as_markup()
             # Audio yuborish
             await callback_query.message.answer_document(
-                pdf_file, caption=_("📖 Kitob: {books_name}\n✍️ Muallif: {author_name}").format(books_name= books.name,author_name = books.author_name ),reply_markup=reply_markup
+                pdf_file, caption=_(
+                    "📖 Kitob: {books_name}\n✍️ Muallif: {author_name}\n  {desc}"
+                    ).format(
+
+                        books_name= books.name,
+                        author_name = books.author_name,
+                        desc=books.desc 
+
+                        ),reply_markup=reply_markup
             )
     except Books.DoesNotExist:
         await callback_query.message.answer(_("❌ Bu kitob topilmadi."))

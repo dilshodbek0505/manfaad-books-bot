@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-29 22:46+0500\n"
+"POT-Creation-Date: 2025-02-01 18:24+0500\n"
 "PO-Revision-Date: 2024-12-21 23:47+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
@@ -80,9 +80,7 @@ msgid "🔍 {query} so'zidan boshlangan mualliflar topildi:"
 msgstr ""
 
 #: apps/bot/handlers/commands.py:443
-msgid ""
-"❌ {query} bilan boshlangan muallif topilmadi. Iltimos, boshqa nom "
-"kiriting."
+msgid "❌ {query} bilan boshlangan muallif topilmadi. Qayta urinib ko'ring"
 msgstr ""
 
 #: apps/bot/handlers/commands.py:526 apps/bot/handlers/commands.py:529
@@ -93,8 +91,8 @@ msgstr ""
 msgid "❌ Bu muallif hali kitob yozmagan."
 msgstr ""
 
-#: apps/bot/handlers/commands.py:533 apps/bot/handlers/commands.py:594
-#: apps/bot/handlers/commands.py:619
+#: apps/bot/handlers/commands.py:533 apps/bot/handlers/commands.py:602
+#: apps/bot/handlers/commands.py:627
 msgid "⚠️ Xatolik yuz berdi"
 msgstr ""
 
@@ -113,10 +111,11 @@ msgstr ""
 #: apps/bot/handlers/commands.py:588
 msgid ""
 "📖 Kitob: {books_name}\n"
-"✍️ Muallif: {author_name}"
+"✍️ Muallif: {author_name}\n"
+"  {desc}"
 msgstr ""
 
-#: apps/bot/handlers/commands.py:591 apps/bot/handlers/commands.py:617
+#: apps/bot/handlers/commands.py:599 apps/bot/handlers/commands.py:625
 msgid "❌ Bu kitob topilmadi."
 msgstr ""
 
@@ -124,23 +123,23 @@ msgstr ""
 msgid "Sozlamalar⚙️"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:23 apps/bot/handlers/settings.py:74
+#: apps/bot/handlers/settings.py:37 apps/bot/handlers/settings.py:88
 msgid "Sozlamalar menusi"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:26 apps/bot/keyboards/reply.py:9
+#: apps/bot/handlers/settings.py:40 apps/bot/keyboards/reply.py:9
 msgid "Kitoblar📚"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:45
+#: apps/bot/handlers/settings.py:59
 msgid "Kitoblarni nomi yoki muallifini yozib qidirishingiz mumkin"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:51 apps/bot/keyboards/reply.py:16
+#: apps/bot/handlers/settings.py:65 apps/bot/keyboards/reply.py:16
 msgid "Tilni o'zgartirish"
 msgstr ""
 
-#: apps/bot/handlers/settings.py:53
+#: apps/bot/handlers/settings.py:67
 msgid "Tilni tanlang:"
 msgstr ""
 
@@ -179,5 +178,15 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Til o'zgartirildi✅"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "❌ {query} bilan boshlangan muallif "
+#~ "topilmadi. Iltimos, boshqa nom kiriting."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "📖 Kitob: {books_name}\n"
+#~ "✍️ Muallif: {author_name}"
 #~ msgstr ""
 

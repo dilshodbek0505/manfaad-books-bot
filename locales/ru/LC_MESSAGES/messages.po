@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-29 22:46+0500\n"
+"POT-Creation-Date: 2025-02-01 18:24+0500\n"
 "PO-Revision-Date: 2024-12-21 23:47+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -46,7 +46,7 @@ msgstr "Выберите язык"
 
 #: apps/bot/handlers/commands.py:97
 msgid "Xatolik yuz berdi 😢"
-msgstr ""
+msgstr "Произошла ошибка 😢"
 
 #: apps/bot/handlers/commands.py:120
 msgid "Kitob nomini yozib yuboring:"
@@ -54,96 +54,100 @@ msgstr "Напишите название книги:"
 
 #: apps/bot/handlers/commands.py:143
 msgid "Kitob muallifini yozib yuboring:"
-msgstr ""
+msgstr "Напишите автору книги:"
 
 #: apps/bot/handlers/commands.py:182
 msgid "❌ Kitoblar topilmadi."
-msgstr ""
+msgstr "❌ Книги не найдены."
 
 #: apps/bot/handlers/commands.py:229
 msgid "🔍 Barcha kitoblar eng mashhurlik bo‘yicha saralangan:"
-msgstr ""
+msgstr "🔍 Все книги отсортированы по популярности:"
 
 #: apps/bot/handlers/commands.py:321 apps/bot/handlers/commands.py:329
 #: apps/bot/handlers/commands.py:336
 msgid "🔍 Siz qidirgan kitoblardan birini tanlang:"
-msgstr ""
+msgstr "🔍 Выберите одну из книг, которую вы ищете:"
 
 #: apps/bot/handlers/commands.py:342
 msgid "❌ Bunday kitob topilmadi. Iltimos, boshqa nom kiriting."
-msgstr ""
+msgstr "❌ Такая книга не найдена. Введите другое имя."
 
 #: apps/bot/handlers/commands.py:348
 msgid "⚠️ Xatolik yuz berdi. Keyinroq urinib ko'ring."
-msgstr ""
+msgstr "⚠️ Произошла ошибка. Попробуйте еще раз позже."
 
 #: apps/bot/handlers/commands.py:429 apps/bot/handlers/commands.py:435
 msgid "🔍 {query} so'zidan boshlangan mualliflar topildi:"
-msgstr ""
+msgstr "🔍 Найдено авторов, начинающихся с {query}:"
 
 #: apps/bot/handlers/commands.py:443
-msgid ""
-"❌ {query} bilan boshlangan muallif topilmadi. Iltimos, boshqa nom "
-"kiriting."
-msgstr ""
+#, fuzzy
+msgid "❌ {query} bilan boshlangan muallif topilmadi. Qayta urinib ko'ring"
+msgstr "❌ Автор, начинающийся с {query}, не найден. Попробуйте другое имя"
 
 #: apps/bot/handlers/commands.py:526 apps/bot/handlers/commands.py:529
 msgid "{author} yozgan barcha kitoblar:"
-msgstr ""
+msgstr "«Все книги, написанные {author}:"
 
 #: apps/bot/handlers/commands.py:531
 msgid "❌ Bu muallif hali kitob yozmagan."
-msgstr ""
+msgstr "❌ Этот автор еще не написал ни одной книги."
 
-#: apps/bot/handlers/commands.py:533 apps/bot/handlers/commands.py:594
-#: apps/bot/handlers/commands.py:619
+#: apps/bot/handlers/commands.py:533 apps/bot/handlers/commands.py:602
+#: apps/bot/handlers/commands.py:627
 msgid "⚠️ Xatolik yuz berdi"
-msgstr ""
+msgstr "⚠️ Произошла ошибка."
 
 #: apps/bot/handlers/commands.py:578
 msgid "Audio Faylni Yuklash📥"
-msgstr ""
+msgstr "Скачать аудиофайл📥"
 
 #: apps/bot/handlers/commands.py:580
 msgid "Orqaga"
-msgstr ""
+msgstr "Назад"
 
 #: apps/bot/handlers/commands.py:584
 msgid "Orqagaq"
-msgstr ""
+msgstr "Назад"
 
 #: apps/bot/handlers/commands.py:588
+#, fuzzy
 msgid ""
 "📖 Kitob: {books_name}\n"
-"✍️ Muallif: {author_name}"
+"✍️ Muallif: {author_name}\n"
+"  {desc}"
 msgstr ""
+"📖 Kниги: {books_name}\n"
+"✍️ Aвтор: {author_name}\n"
+"  {desc}"
 
-#: apps/bot/handlers/commands.py:591 apps/bot/handlers/commands.py:617
+#: apps/bot/handlers/commands.py:599 apps/bot/handlers/commands.py:625
 msgid "❌ Bu kitob topilmadi."
-msgstr ""
+msgstr "❌ Эта книга не найдена."
 
 #: apps/bot/handlers/settings.py:21 apps/bot/keyboards/reply.py:8
 #, fuzzy
 msgid "Sozlamalar⚙️"
-msgstr "Настройки"
+msgstr "Настройки⚙️"
 
-#: apps/bot/handlers/settings.py:23 apps/bot/handlers/settings.py:74
+#: apps/bot/handlers/settings.py:37 apps/bot/handlers/settings.py:88
 msgid "Sozlamalar menusi"
 msgstr "Меню настроек"
 
-#: apps/bot/handlers/settings.py:26 apps/bot/keyboards/reply.py:9
+#: apps/bot/handlers/settings.py:40 apps/bot/keyboards/reply.py:9
 msgid "Kitoblar📚"
-msgstr ""
+msgstr "Книги📚"
 
-#: apps/bot/handlers/settings.py:45
+#: apps/bot/handlers/settings.py:59
 msgid "Kitoblarni nomi yoki muallifini yozib qidirishingiz mumkin"
-msgstr ""
+msgstr "Вы можете искать книги по названию или автору."
 
-#: apps/bot/handlers/settings.py:51 apps/bot/keyboards/reply.py:16
+#: apps/bot/handlers/settings.py:65 apps/bot/keyboards/reply.py:16
 msgid "Tilni o'zgartirish"
 msgstr "Изменить язык"
 
-#: apps/bot/handlers/settings.py:53
+#: apps/bot/handlers/settings.py:67
 #, fuzzy
 msgid "Tilni tanlang:"
 msgstr "Выберите язык"
@@ -162,19 +166,19 @@ msgstr "Английский🇺🇸"
 
 #: apps/bot/keyboards/inline.py:21
 msgid "Nomi orqali🔍"
-msgstr ""
+msgstr "По имени🔍"
 
 #: apps/bot/keyboards/inline.py:22
 msgid "Aftori orqali🔎"
-msgstr ""
+msgstr "Через Афтори🔎"
 
 #: apps/bot/keyboards/inline.py:23
 msgid "Barcha kitoblar"
-msgstr ""
+msgstr "Все книги"
 
 #: apps/bot/keyboards/reply.py:23
 msgid "Telfon raqamni yuborish"
-msgstr ""
+msgstr "Отправить номер телефона"
 
 #~ msgid "Til o'zgartirildi✅"
 #~ msgstr "Язык был изменен✅"
