@@ -8,7 +8,6 @@ from apps.common.models import BaseModel
 def validate_mp3(value):
     formats=[".mp3",".aac",".ogg",".flac",".alac",".wav",".aiff",".dsd",".pcm",".m4a",".ape",".wv",".raw",".oga",".mogg",".mmf",".movpkg",".m4p",".m4b",".aa"]
     if not any(value.name.lower().endswith(i) for i in formats):
-    if not any(value.name.lower().endswith(i) for i in formats):
         raise ValidationError('Only MP3 files are allowed.')
     
     
